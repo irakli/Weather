@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Knm-Tl-DWh">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Forecast-->
+        <scene sceneID="VEm-1J-2mR">
+            <objects>
+                <viewController id="TeB-6B-cdq" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2u9-sJ-3dL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Im5-Hv-hhh"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Forecast" image="cloud.sun" catalog="system" id="bTV-eR-hLd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pHW-DU-krK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-287" y="237"/>
+        </scene>
+        <!--Today-->
+        <scene sceneID="U9t-rD-gam">
+            <objects>
+                <viewController id="9FT-3q-AaV" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lm8-ra-llS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8lx-Vb-Raq">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="xPw-Xd-vdY">
+                                        <barButtonItem key="leftBarButtonItem" image="arrow.clockwise" catalog="system" id="pRU-og-7qY" userLabel="Refresh">
+                                            <connections>
+                                                <action selector="refresh:" destination="X0P-cG-PrB" id="rT4-C6-o09"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" image="square.and.arrow.up" catalog="system" id="FTX-tk-JcW" userLabel="Share">
+                                            <connections>
+                                                <action selector="share:" destination="X0P-cG-PrB" id="ZmK-fY-PXK"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="8lx-Vb-Raq" firstAttribute="leading" secondItem="b42-Mj-GKK" secondAttribute="leading" id="MHh-IJ-wQY"/>
+                            <constraint firstItem="8lx-Vb-Raq" firstAttribute="top" secondItem="b42-Mj-GKK" secondAttribute="top" id="fW7-vZ-uL3"/>
+                            <constraint firstAttribute="trailing" secondItem="8lx-Vb-Raq" secondAttribute="trailing" id="pJ3-HW-sfG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="b42-Mj-GKK"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Today" image="thermometer" catalog="system" id="cZK-g5-WvQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VHr-6W-YRH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="X0P-cG-PrB" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-287" y="-411"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="31G-b6-ljN">
+            <objects>
+                <tabBarController id="Knm-Tl-DWh" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gV2-af-wUG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="9FT-3q-AaV" kind="relationship" relationship="viewControllers" id="n5S-2R-DF1"/>
+                        <segue destination="TeB-6B-cdq" kind="relationship" relationship="viewControllers" id="mqP-Ta-TJJ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HXK-CG-im4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1206" y="-87"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.clockwise" catalog="system" width="56" height="64"/>
+        <image name="cloud.sun" catalog="system" width="64" height="44"/>
+        <image name="square.and.arrow.up" catalog="system" width="56" height="64"/>
+        <image name="thermometer" catalog="system" width="42" height="64"/>
+    </resources>
+</document>
