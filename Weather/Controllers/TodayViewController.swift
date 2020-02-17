@@ -86,7 +86,7 @@ class TodayViewController: UIViewController {
 		isLoading = !isLoading
 		
 		self.blurLoading.isHidden = isLoading
-		self.refreshButton.isEnabled = isLoading
+//		self.refreshButton.isEnabled = isLoading
 		self.shareButton.isEnabled = isLoading
 	}
 
