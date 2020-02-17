@@ -15,13 +15,21 @@ class TodayViewController: UIViewController {
 	var locationManager: CLLocationManager = CLLocationManager()
 	var location: CLLocationCoordinate2D = CLLocationCoordinate2D()
 	var isLoading: Bool = true
-		
+	
+	/* Main Components **/
 	@IBOutlet weak var weatherIcon: UIImageView!
 	@IBOutlet weak var locationLabel: UILabel!
 	@IBOutlet weak var weatherLabel: UILabel!
 	@IBOutlet weak var blurLoading: UIVisualEffectView!
 	@IBOutlet weak var refreshButton: UIBarButtonItem!
 	@IBOutlet weak var shareButton: UIBarButtonItem!
+	
+	/* Details **/
+	@IBOutlet weak var cloudyness: WeatherDetailView!
+	@IBOutlet weak var humidity: WeatherDetailView!
+	@IBOutlet weak var pressure: WeatherDetailView!
+	@IBOutlet weak var wind: WeatherDetailView!
+	@IBOutlet weak var windDirection: WeatherDetailView!
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,13 +51,18 @@ class TodayViewController: UIViewController {
 		let configuration = URLSessionConfiguration.default
 		let session = URLSession(configuration: configuration)
 		
-	  	let task = session.dataTask(with: constructRequest()) { [weak self] (data, response, error) in
+		getWeatherInfo(session)
+		getWeatherIcons()
+	}
+	
+	func getWeatherInfo(_ session: URLSession) {
+		let task = session.dataTask(with: constructRequest()) { [weak self] (data, response, error) in
 			guard let data = data, let httpResponse = response as? HTTPURLResponse else {
-				print("Error")
+				self!.displayErrorText(with: "Some error")
 				return
 			}
 			guard (200 ..< 300) ~= httpResponse.statusCode else {
-				print("Status code error")
+				self!.displayErrorText(with: "Some other error")
 				return
 			}
 				  
@@ -60,12 +73,26 @@ class TodayViewController: UIViewController {
 						self!.weatherLabel.text = "\(result.main.temp)°C | \(weather.main)"
 						
 						self!.toggleLoadingAnimation()
+						
+						self!.cloudyness.info = String(result.clouds.all)
+						self!.humidity.info = String(result.main.humidity)
+						self!.pressure.info = String(result.main.pressure)
+						self!.wind.info = String(result.wind.speed)
+						self!.windDirection.info = String(result.wind.deg)
 					}
 				}
 			}
 		}
 		
 		task.resume()
+	}
+	
+	func getWeatherIcons() {
+		
+	}
+	
+	func displayErrorText(with error: String) {
+		
 	}
 	
 	func constructRequest() -> URLRequest {
