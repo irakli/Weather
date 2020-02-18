@@ -51,12 +51,11 @@ class TodayViewController: UIViewController {
 		let configuration = URLSessionConfiguration.default
 		let session = URLSession(configuration: configuration)
 		
-		getWeatherInfo(session)
-		getWeatherIcons()
+		getWeatherDetails(from: session)
 	}
 	
-	func getWeatherInfo(_ session: URLSession) {
-		let task = session.dataTask(with: constructRequest()) { [weak self] (data, response, error) in
+	func getWeatherDetails(from session: URLSession) {
+		let task = session.dataTask(with: constructWeatherRequest()) { [weak self] (data, response, error) in
 			guard let data = data, let httpResponse = response as? HTTPURLResponse else {
 				self!.displayErrorText(with: "Some error")
 				return
@@ -72,12 +71,14 @@ class TodayViewController: UIViewController {
 						self!.locationLabel.text = result.name
 						self!.weatherLabel.text = "\(result.main.temp)°C | \(weather.main)"
 						
+						self!.getWeatherIcon(from: session, with: self!.constructIconRequest(with: weather.icon))
+						
 						self!.toggleLoadingAnimation()
 						
-						self!.cloudyness.info = String(result.clouds.all)
-						self!.humidity.info = String(result.main.humidity)
-						self!.pressure.info = String(result.main.pressure)
-						self!.wind.info = String(result.wind.speed)
+						self!.cloudyness.info =  "\(result.clouds.all)%"
+						self!.humidity.info = "\(result.main.humidity) mm"
+						self!.pressure.info = "\(result.main.pressure) hPa"
+						self!.wind.info = "\(result.wind.speed) km/h"
 						self!.windDirection.info = String(result.wind.deg)
 					}
 				}
@@ -87,15 +88,46 @@ class TodayViewController: UIViewController {
 		task.resume()
 	}
 	
-	func getWeatherIcons() {
-		
+	func getWeatherIcon(from session: URLSession, with request: URLRequest) {
+		let task = session.dataTask(with: request) { [weak self] (data, response, error) in
+			guard let data = data, let httpResponse = response as? HTTPURLResponse else {
+				self!.displayErrorText(with: "Error loading weather icon")
+				return
+			}
+			guard (200 ..< 300) ~= httpResponse.statusCode else {
+				self!.displayErrorText(with: "Error loading weather icon")
+				return
+			}
+
+			if let image = UIImage(data: data) {
+				DispatchQueue.main.async {
+					self!.weatherIcon.image = image
+				}
+			}
+		}
+
+		task.resume()
 	}
 	
 	func displayErrorText(with error: String) {
 		
 	}
 	
-	func constructRequest() -> URLRequest {
+	func constructIconRequest(with name: String) -> URLRequest {
+		let api = "https://openweathermap.org"
+		let endpoint = "/img/wn"
+		let query = "/\(name)"
+		let params = "@2x.png"
+		let url = URL(string: api + endpoint + query + params)
+		
+		var request = URLRequest(url: url!)
+		request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+		request.httpMethod = "GET"
+		
+		return request
+	}
+	
+	func constructWeatherRequest() -> URLRequest {
 		let api = "https://api.openweathermap.org"
 		let endpoint = "/data/2.5/weather"
 		let query = "?lat=\(location.latitude)&lon=\(location.longitude)"
@@ -129,13 +161,12 @@ class TodayViewController: UIViewController {
 
 extension TodayViewController: CLLocationManagerDelegate {
 	func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-		print("Location error: \(error.localizedDescription)")
+		displayErrorText(with: "Location error: \(error.localizedDescription)")
 	}
 
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		location = (manager.location?.coordinate)!
-		print("Current location: \(location.latitude) \(location.longitude)")
-		
+
 		getWeatherData()
 		locationManager.stopUpdatingLocation()
 	}

@@ -85,61 +85,66 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddX-nK-YfI" userLabel="Cloudyness" customClass="WeatherDetailView" customModule="Weather" customModuleProvider="target">
                                         <rect key="frame" x="20" y="5" width="83" height="84.333333333333329"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="info">
                                                 <string key="value" base64-UTF8="YES">
 EEFlZQ
 </string>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="calendar.circle.fill" catalog="system"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="cloud.rain" catalog="system"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TzO-0M-X4U" userLabel="Moisture" customClass="WeatherDetailView" customModule="Weather" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TzO-0M-X4U" userLabel="Humidity" customClass="WeatherDetailView" customModule="Weather" customModuleProvider="target">
                                         <rect key="frame" x="118.66666666666666" y="5" width="82.666666666666657" height="84.333333333333329"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="info">
                                                 <string key="value" base64-UTF8="YES">
 EEFlZQ
 </string>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="calendar.circle.fill" catalog="system"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="umbrella" catalog="system"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Boh-ae-YqU" userLabel="Pressure" customClass="WeatherDetailView" customModule="Weather" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="70G-t4-JAZ" userLabel="Pressure" customClass="WeatherDetailView" customModule="Weather" customModuleProvider="target">
+                                        <rect key="frame" x="217" y="5.0000000000000568" width="83" height="84.333333333333329"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="info">
+                                                <string key="value" base64-UTF8="YES">
+EEFlZQ
+</string>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="bolt.circle" catalog="system"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Boh-ae-YqU" userLabel="Wind" customClass="WeatherDetailView" customModule="Weather" customModuleProvider="target">
                                         <rect key="frame" x="50" y="115.66666666666663" width="83" height="84.333333333333314"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="info">
                                                 <string key="value" base64-UTF8="YES">
 EEFlZQ
 </string>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="calendar.circle.fill" catalog="system"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="wind" catalog="system"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l4u-fI-PgA" userLabel="Wind" customClass="WeatherDetailView" customModule="Weather" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l4u-fI-PgA" userLabel="Wind Direction" customClass="WeatherDetailView" customModule="Weather" customModuleProvider="target">
                                         <rect key="frame" x="187" y="115.66666666666663" width="83" height="84.333333333333314"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="info">
                                                 <string key="value" base64-UTF8="YES">
 EEFlZQ
 </string>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="calendar.circle.fill" catalog="system"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="70G-t4-JAZ" userLabel="Wind Direction" customClass="WeatherDetailView" customModule="Weather" customModuleProvider="target">
-                                        <rect key="frame" x="217" y="5" width="83" height="84.333333333333329"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="info">
-                                                <string key="value" base64-UTF8="YES">
-EEFlZQ
-</string>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="calendar.circle.fill" catalog="system"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="pencil.circle" catalog="system"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
@@ -216,13 +221,13 @@ EEFlZQ
                         <outlet property="cloudyness" destination="ddX-nK-YfI" id="IV8-Wh-rUu"/>
                         <outlet property="humidity" destination="TzO-0M-X4U" id="fwz-2Z-08n"/>
                         <outlet property="locationLabel" destination="LW1-Rt-EAh" id="oqb-Ig-eI0"/>
-                        <outlet property="pressure" destination="Boh-ae-YqU" id="lId-Tg-4Z6"/>
+                        <outlet property="pressure" destination="70G-t4-JAZ" id="leB-wL-Nh1"/>
                         <outlet property="refreshButton" destination="pRU-og-7qY" id="Ocl-Qh-61l"/>
                         <outlet property="shareButton" destination="FTX-tk-JcW" id="VLp-Z2-2Gg"/>
                         <outlet property="weatherIcon" destination="iMB-2m-Aj4" id="Kqa-l5-3Im"/>
                         <outlet property="weatherLabel" destination="MaY-L1-zK0" id="pdX-km-SVk"/>
-                        <outlet property="wind" destination="l4u-fI-PgA" id="N3e-5y-Vlb"/>
-                        <outlet property="windDirection" destination="70G-t4-JAZ" id="28t-cx-QdV"/>
+                        <outlet property="wind" destination="Boh-ae-YqU" id="iLI-Pv-LHg"/>
+                        <outlet property="windDirection" destination="l4u-fI-PgA" id="oSX-e2-wRy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VHr-6W-YRH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -250,10 +255,14 @@ EEFlZQ
     </scenes>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="56" height="64"/>
-        <image name="calendar.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="bolt.circle" catalog="system" width="64" height="60"/>
+        <image name="cloud.rain" catalog="system" width="64" height="62"/>
         <image name="cloud.rain.fill" catalog="system" width="64" height="62"/>
         <image name="cloud.sun" catalog="system" width="64" height="44"/>
+        <image name="pencil.circle" catalog="system" width="64" height="60"/>
         <image name="square.and.arrow.up" catalog="system" width="56" height="64"/>
         <image name="thermometer" catalog="system" width="42" height="64"/>
+        <image name="umbrella" catalog="system" width="58" height="64"/>
+        <image name="wind" catalog="system" width="64" height="50"/>
     </resources>
 </document>
